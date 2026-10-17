@@ -1,0 +1,52 @@
+{
+  "scenario_name": "AI Assistant Financial Affordability Consultation",
+  "description": "Student asking natural language question with budget context; assistant calls allowlisted analyze_budget tool and explains result.",
+  "request": {
+    "message": "Can I afford my study budget for Germany?",
+    "scenario_context": {
+      "currency": "EUR",
+      "tuition": "3000.00",
+      "living_costs": "10800.00",
+      "other_costs": "1200.00",
+      "available_savings": "5000.00",
+      "months_remaining": 10,
+      "monthly_savings_capacity": "800.00"
+    }
+  },
+  "response": {
+    "answer": "Based on your estimated expenses, the total cost is 15000.00 EUR. After applying your current savings of 5000.00 EUR, you face an estimated funding gap of 10000.00 EUR. Over 10 months, you will need to save approximately 1000.00 EUR per month to reach your goal. Note: This target exceeds your declared monthly savings capacity by 200.00 EUR/month.",
+    "tool_results": [
+      {
+        "tool": "analyze_budget",
+        "inputs": {
+          "currency": "EUR",
+          "tuition": "3000.00",
+          "living_costs": "10800.00",
+          "other_costs": "1200.00",
+          "available_savings": "5000.00",
+          "months_remaining": 10,
+          "monthly_savings_capacity": "800.00"
+        },
+        "outputs": {
+          "currency": "EUR",
+          "total_estimated_cost": "15000.00",
+          "available_savings": "5000.00",
+          "funding_gap": "10000.00",
+          "surplus": "0.00",
+          "months_remaining": 10,
+          "required_monthly_savings": "1000.00",
+          "monthly_savings_capacity": "800.00",
+          "savings_capacity_shortfall": "200.00",
+          "is_feasible": false
+        }
+      }
+    ],
+    "assumptions": [
+      "All cost estimates are user-provided assumptions.",
+      "Arithmetic performed deterministically in EUR using decimal-safe precision.",
+      "Rounding rule applied: standard financial ROUND_HALF_UP to two decimal places.",
+      "Planning horizon based on 10 remaining months."
+    ],
+    "mode": "demo"
+  }
+}

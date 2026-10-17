@@ -1,0 +1,36 @@
+{
+  "scenario_name": "MSc FinTech — Imperial College London (UK)",
+  "description": "Student evaluating high-tuition degree in London with £20,000 available savings and £2,500/month capacity.",
+  "request": {
+    "currency": "GBP",
+    "tuition": "39500.00",
+    "living_costs": "16500.00",
+    "other_costs": "2000.00",
+    "available_savings": "20000.00",
+    "months_remaining": 12,
+    "monthly_savings_capacity": "2500.00"
+  },
+  "response": {
+    "currency": "GBP",
+    "total_estimated_cost": "58000.00",
+    "available_savings": "20000.00",
+    "funding_gap": "38000.00",
+    "surplus": "0.00",
+    "months_remaining": 12,
+    "required_monthly_savings": "3166.67",
+    "monthly_savings_capacity": "2500.00",
+    "savings_capacity_shortfall": "666.67",
+    "is_feasible": false,
+    "cost_breakdown": [
+      { "category": "Tuition", "amount": "39500.00", "percentage": 68.1 },
+      { "category": "Living Expenses", "amount": "16500.00", "percentage": 28.45 },
+      { "category": "Other Expenses", "amount": "2000.00", "percentage": 3.45 }
+    ],
+    "assumptions": [
+      "All cost estimates are user-provided assumptions.",
+      "Arithmetic performed deterministically in GBP using decimal-safe precision.",
+      "Rounding rule applied: standard financial ROUND_HALF_UP to two decimal places.",
+      "Planning horizon based on 12 remaining months."
+    ]
+  }
+}

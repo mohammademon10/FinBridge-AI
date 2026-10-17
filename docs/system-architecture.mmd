@@ -1,0 +1,62 @@
+graph TD
+    subgraph ClientLayer["Frontend Client (React 19 + Vite + TypeScript + Tailwind)"]
+        UI[Student Dashboard Shell]
+        BUI[Budget Calculator & Recharts Visualizer]
+        CUI[Multi-Currency Converter]
+        PUI[Tuition & Savings Planner]
+        AUI[Constrained AI Assistant Chat]
+        APIClient[Typed HTTP API Client]
+        
+        UI --> BUI
+        UI --> CUI
+        UI --> PUI
+        UI --> AUI
+        BUI --> APIClient
+        CUI --> APIClient
+        PUI --> APIClient
+        AUI --> APIClient
+    end
+
+    subgraph APILayer["FastAPI Gateway (Python 3.13)"]
+        CORS[CORS Policy & Request ID Middleware]
+        VAL[Pydantic v2 Contract Validation]
+        ERR[Standardized JSON Error Handlers]
+        
+        APIClient -->|HTTP / JSON| CORS
+        CORS --> VAL
+        VAL --> ERR
+    end
+
+    subgraph ServiceLayer["Deterministic Finance Services (Decimal Precision)"]
+        BS[Budget Analysis Engine]
+        CS[Currency Conversion & Benchmark Matrix]
+        PS[Tuition Planner & Scenario Comparator]
+        
+        VAL -->|/api/budget/*| BS
+        VAL -->|/api/currency/*| CS
+        VAL -->|/api/planner/*| PS
+    end
+
+    subgraph AIAgentLayer["Constrained AI Agent Gateway"]
+        GUARD[Guardrail Validator & Transfer Interceptor]
+        DISPATCH[Allowlisted Tool Dispatcher]
+        MOCK[Deterministic Tool Rule Engine]
+        LLM[Optional LLM Provider API]
+        
+        VAL -->|/api/agent/chat| GUARD
+        GUARD --> DISPATCH
+        DISPATCH --> MOCK
+        DISPATCH -.-> LLM
+        DISPATCH -->|Allowlisted Calls| BS
+        DISPATCH -->|Allowlisted Calls| CS
+        DISPATCH -->|Allowlisted Calls| PS
+    end
+
+    subgraph PersistenceLayer["Storage & Reference Data"]
+        SQLITE[(SQLite Demo Scenario Store)]
+        BM[(Benchmark Illustrative Rates Table)]
+        
+        VAL -->|/api/scenarios/*| SQLITE
+        BS --> SQLITE
+        CS --> BM
+    end

@@ -1,0 +1,36 @@
+{
+  "scenario_name": "MSc Computer Science — TU Munich (Germany)",
+  "description": "Student with moderate savings evaluating public university living costs and semester fees over a 10-month planning horizon.",
+  "request": {
+    "currency": "EUR",
+    "tuition": "3000.00",
+    "living_costs": "10800.00",
+    "other_costs": "1200.00",
+    "available_savings": "5000.00",
+    "months_remaining": 10,
+    "monthly_savings_capacity": "800.00"
+  },
+  "response": {
+    "currency": "EUR",
+    "total_estimated_cost": "15000.00",
+    "available_savings": "5000.00",
+    "funding_gap": "10000.00",
+    "surplus": "0.00",
+    "months_remaining": 10,
+    "required_monthly_savings": "1000.00",
+    "monthly_savings_capacity": "800.00",
+    "savings_capacity_shortfall": "200.00",
+    "is_feasible": false,
+    "cost_breakdown": [
+      { "category": "Tuition", "amount": "3000.00", "percentage": 20.0 },
+      { "category": "Living Expenses", "amount": "10800.00", "percentage": 72.0 },
+      { "category": "Other Expenses", "amount": "1200.00", "percentage": 8.0 }
+    ],
+    "assumptions": [
+      "All cost estimates are user-provided assumptions.",
+      "Arithmetic performed deterministically in EUR using decimal-safe precision.",
+      "Rounding rule applied: standard financial ROUND_HALF_UP to two decimal places.",
+      "Planning horizon based on 10 remaining months."
+    ]
+  }
+}

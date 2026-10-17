@@ -1,0 +1,25 @@
+{
+  "scenario_name": "Cross-Border Tuition Currency Conversion",
+  "description": "Student converting €15,000 EUR tuition fees into USD using benchmark illustrative matrix.",
+  "request": {
+    "amount": "15000.00",
+    "from_currency": "EUR",
+    "to_currency": "USD"
+  },
+  "response": {
+    "source_amount": "15000.00",
+    "from_currency": "EUR",
+    "to_currency": "USD",
+    "rate": "1.0850",
+    "converted_amount": "16275.00",
+    "rate_source": "FinBridge Illustrative Benchmark Matrix",
+    "rate_timestamp": "2026-10-17T14:30:00Z",
+    "is_illustrative": true,
+    "assumptions": [
+      "Converted EUR to USD at rate 1.0850.",
+      "Rate source: FinBridge Illustrative Benchmark Matrix.",
+      "Calculations performed deterministically via Python Decimal.",
+      "Rate is illustrative demo data and not a live bank market quote."
+    ]
+  }
+}
