@@ -19,13 +19,14 @@ class Settings(BaseModel):
     # Optional Exchange Rate API
     CURRENCY_API_KEY: str = os.getenv("CURRENCY_API_KEY", "")
 
-    # Allowed CORS Origins
+    # Allowed CORS Origins (supports comma-separated origins via environment variable)
     CORS_ORIGINS: list[str] = [
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:3000",
-        "http://localhost:8000",
-        "http://127.0.0.1:8000",
+        origin.strip()
+        for origin in os.getenv(
+            "CORS_ORIGINS",
+            "http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000,http://localhost:8000,http://127.0.0.1:8000"
+        ).split(",")
+        if origin.strip()
     ]
 
 settings = Settings()

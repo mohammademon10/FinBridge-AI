@@ -124,6 +124,18 @@ Open [http://localhost:5173](http://localhost:5173) in your browser. The applica
 
 ---
 
+## 🌐 Cloud Deployment (Vercel + Render)
+
+The project includes ready-to-use production configurations for 1-click cloud deployment:
+
+- **Frontend (Vercel):** Configured via [frontend/vercel.json](frontend/vercel.json). Set `VITE_API_BASE_URL` to your live backend URL.
+- **Backend (Render):** Configured via [render.yaml](render.yaml). Runs FastAPI with production Uvicorn and CORS.
+- **Containerized (Docker):** Full stack runnable via `docker compose up -d --build`.
+
+👉 **See the complete step-by-step instructions in [docs/deployment-guide.md](docs/deployment-guide.md).**
+
+---
+
 ## 🧪 Verified Automated Test Coverage
 
 ```text
